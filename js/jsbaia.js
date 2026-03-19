@@ -1048,46 +1048,6 @@ function focus_populate_live_region(){var e=["woocommerce-message","woocommerce-
 })(jQuery);
 
 
-jQuery(document).ready(function() {
-    alacarte_btt_start();
-    jQuery(window).scroll(function(e) {
-        alacarte_btt_start();
-    });
-    jQuery('#red-btt-circle').click(function() {
-        jQuery('html, body').animate({
-            scrollTop: 0
-        }, 'slow');
-    });
-});
-
-function alacarte_btt_start() {
-    var scrollTop = jQuery(window).scrollTop();
-    var docHeight = jQuery(document).height();
-    var winHeight = jQuery(window).height();
-    var scrollPercent = (scrollTop) / (docHeight - winHeight);
-    var scrollPercentRounded = Math.round(scrollPercent * 100);
-    
-    if (scrollPercentRounded > scrollPercent) {
-        if (jQuery('#red-btt-btn').hasClass('show')) {} else {
-            jQuery('#red-btt-btn').addClass('show');
-        }
-    } else {
-        jQuery('#red-btt-btn').removeClass('show');
-    }
-    alacarte_btt_btn(scrollPercentRounded);
-};
-
-function alacarte_btt_btn(i) {
-    prec = i * 3.6;
-    jQuery('#red-btt-prec').html(i + '%');
-    var borderColor = alacarte_ajax_opts.primary_color;
-        borderActiveColor = alacarte_ajax_opts.accent_color;
-    if (prec <= 180) {
-        jQuery('#red-btt-border').css('background-image', 'linear-gradient(' + (prec + 90) + 'deg, transparent 50%, ' + borderColor + ' 50%),linear-gradient(90deg, ' + borderColor + ' 50%, transparent 50%)');
-    } else {
-        jQuery('#red-btt-border').css('background-image', 'linear-gradient(' + (prec - 90) + 'deg, transparent 50%, ' + borderActiveColor + ' 50%),linear-gradient(90deg, ' + borderColor + ' 50%, transparent 50%)');
-    }
-};
 ;
 /*! Magnific Popup - v1.1.0 - 2016-02-20
  * http://dimsemenov.com/plugins/magnific-popup/
